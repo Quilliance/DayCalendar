@@ -1,0 +1,30 @@
+@import "colors";
+
+
+.calendar-tile {
+  svg {
+    g.calendar-page {
+      rect.calendar-page-background {
+        fill: $gray-3;
+        rx: 15px;
+      }
+      line.axis-guideline {
+        stroke: $gray-20;
+      }
+      g.events {
+        rect.event {
+          rx: 10px;
+          &.event-meeting {
+            fill: $tc-calendar-category-meeting;
+          }
+          &.event-event {
+            fill: $tc-calendar-category-event;
+          }
+        }
+        text.label {
+          fill: #000;//$white;
+        }
+      }
+    }
+  }
+}
