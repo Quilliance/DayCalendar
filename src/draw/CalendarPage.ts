@@ -63,7 +63,12 @@ export class CalendarPage implements CalendarDrawable {
     const columnsGroup = calendarPageGroup.append('g')
       .attr('class', 'columns');
 
-    for (let columnIndex in this.columns) {
+    /*
+    The columns are drawn in reverse order: So the right most column is the last in the view hierarchy.
+    For those event boxes whose content (text) is wider than its box, the size expands to full width when hovering over the event in order to show the full content (text).
+    In this case, the expanded box will be higher in the view hierarchy than columns which it overlaps: It will show on top of the other columns.
+     */
+    for (let columnIndex = this.columns.length - 1; columnIndex >= 0; columnIndex--) {
       const column = this.columns[columnIndex];
 
       column.drawInParentGroup(columnsGroup, timeScale, columnScale, columnIndex, context);

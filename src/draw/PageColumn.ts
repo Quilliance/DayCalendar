@@ -50,15 +50,14 @@ export class PageColumn {
     // check if there are any events in this
     if (this.hasEvents) {
       // check if the start of the test event is before the last end timestamp of the column
-      const doesCollide = eventToTest.start.isBefore(this.lastEnd);
-      return doesCollide;
+      return eventToTest.start.isBefore(this.lastEnd);
     } else {
       return false; // no collision (no events)
     }
   }
 
   /** draws this in the given parent group */
-  drawInParentGroup(parentGroup: any, timeScale: any, columnBandsScale: any, columnIndex: string, drawContext: DrawContext) {
+  drawInParentGroup(parentGroup: any, timeScale: any, columnBandsScale: any, columnIndex: number, drawContext: DrawContext) {
     // create a column group
     const columnGroup = parentGroup.append('g')
       .attr('class', `column column-${columnIndex} events`);
