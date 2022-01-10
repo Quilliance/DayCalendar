@@ -128,7 +128,7 @@ export class PageColumn {
       })
       .attr('x', 0).attr('y', 0) // we already transforming the parent group
       .attr('width', columnBandsScale.bandwidth())
-      .attr('height', (event: DayCalendarEvent, i: number) => {
+      .attr('height', (event: DayCalendarEvent) => {
         return timeScale(event.end) - timeScale(event.start);
       })
       .each((tileCalendarEvent: DayCalendarEvent, i: number, groupElements: any[]) => {

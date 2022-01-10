@@ -25,7 +25,7 @@ export class CalendarPage implements CalendarDrawable {
     const calendarPageGroup = this.parentGroup.append('g')
       .attr('class', 'calendar-page');
     // draw the gray background
-    const background = calendarPageGroup.append('rect')
+    this.background = calendarPageGroup.append('rect')
       .attr('x', 0)
       .attr('y', 0)
       .attr('width', context.dimensions.contentWidth)
@@ -53,7 +53,7 @@ export class CalendarPage implements CalendarDrawable {
 
     // the column domain
     let columnIndex = 0;
-    const columnDomain = this.columns.map((column) => {
+    const columnDomain = this.columns.map(() => {
       return columnIndex++ + '';
     });
     const columnScale = d3.scaleBand()
